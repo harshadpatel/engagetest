@@ -1,0 +1,28 @@
+{
+  "name": "engagetest",
+  "version": "1.0.0",
+  "description": "Engage Project",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harshadpatel/engagetest.git"
+  },
+  "author": "Harshad Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harshadpatel/engagetest/issues"
+  },
+  "homepage": "https://github.com/harshadpatel/engagetest#readme"
+}

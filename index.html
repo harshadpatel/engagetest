@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Matalan Test</title>
+<script type="text/javascript">
+// Change this to your API key between the single quotes ('):
+//var api_key = 'b6f57a9d93b2465cf0be488e0c144f8c';
+//results.loadhtml('http://api.openweathermap.org/data/2.5/weather?q=Montreal&mode=html&appid=' + api_key);
+	
+// Add your code below this line!
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", "http://api.openweathermap.org/data/2.5/weather?q=Bradford&mode=json&&units=metric&appid=b6f57a9d93b2465cf0be488e0c144f8c", true);
+xhr.onload = function (e) {
+  if (xhr.readyState === 4) {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+      var response = JSON.parse(xhr.responseText);
+	  //document.write(response)
+	 
+      console.log("Temperature(K): " + response.main.temp_max);
+	  var symbol ="http://openweathermap.org/img/w/10d.png";	
+	  document.getElementById("output").innerHTML = response.main.temp_max + '<img src="http://openweathermap.org/img/w/'+ response.weather[0].icon +'.png">';
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+xhr.send(null);
+
+// Form submission
+
+        function CheckAndSubmit () {
+            var cityName = document.getElementById ("cityName");
+            if (cityName.value.length < 3) {
+                alert ("The name of the user must be at least 3 characters long!");
+				return false;
+            }
+									alert(cityName.value);
+        }
+
+
+</script>
+</head>
+
+<body>
+    <form id="weatherForm" method="post" action="#URL#" onsubmit="return CheckAndSubmit ()">
+        Please enter city/country: <input type="text" name="cityName" id="cityName" />
+        <input type="submit" value="Register" />
+    </form>
+<div id="output" style="width: 150px; height: 100px; color: #000;"></div>
+</body>
+</html>
